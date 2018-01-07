@@ -11,15 +11,18 @@ chord_base_type : | "M" -> chord_maj
                   | "dim"  -> chord_dim
                   | "aug" -> chord_aug
                   | "pow" -> chord_pow
-chord_modifier : chord_tone (accidental chord_tone)*
-chord_tone : "2" -> deg_second
-             | "4" -> deg_fourth
-             | "5" -> deg_fifth
-             | "6" -> deg_sixth
-             | "7" -> deg_seventh
-             | "9" -> deg_ninth
-             | "11" -> deg_eleventh
-             | "13" -> deg_thirteenth
+chord_modifier : chord_degree (degree_modifier chord_degree)*
+degree_modifier : "sus" -> mod_sus
+                  | "add" -> mod_add
+                  | accidental
+chord_degree : "2" -> deg_second
+               | "4" -> deg_fourth
+               | "5" -> deg_fifth
+               | "6" -> deg_sixth
+               | "7" -> deg_seventh
+               | "9" -> deg_ninth
+               | "11" -> deg_eleventh
+               | "13" -> deg_thirteenth
 length_modifier : ("1".."9") "x"
 
 // Notes

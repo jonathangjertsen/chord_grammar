@@ -4,6 +4,9 @@ class TreeToChordList(Transformer):
     acc_flat = lambda self, x: "b"
     acc_sharp = lambda self, x: "#"
 
+    mod_sus = lambda self, x: "sus"
+    mod_add = lambda self, x: "add"
+
     note_c = lambda self, x: "C"
     note_d = lambda self, x: "D"
     note_e = lambda self, x: "E"
@@ -31,12 +34,12 @@ class TreeToChordList(Transformer):
     note = lambda self, x: "".join(x) if len(x) > 1 else x[0]
     octave = lambda self, x: x[0].value
     length_modifier = lambda self, x: x[0].value
+    degree_modifier = lambda self, x: x[0]
     chord_modifier = lambda self, x: "".join(x)
 
     chord_group = tuple
     init_progression = None
     progression = list
-
 
     def pitch(self, x):
         if len(x[0]) > 1:
