@@ -1,6 +1,5 @@
 // Progressions
-?progression : chord_group
-               | (chord_group " ")+ chord_group
+?progression : (chord_group " ")* chord_group
 ?chord_group : chord ("," chord)*
 
 // Chords
